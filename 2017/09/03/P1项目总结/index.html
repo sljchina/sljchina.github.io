@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="机器学习," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="计算步骤数据导入 将数据集导入，并将数据集的特性和价格分离成两个数据集1234567891011121314# 载入此项目所需要的库import numpy as npimport pandas as pdimport visuals as vs # Supplementary code# 载入波士顿房屋的数据集data = pd.read_csv(&amp;apos;housing.csv&amp;apos;)">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P1项目总结">
+<meta property="og:url" content="http://yoursite.com/2017/09/03/P1项目总结/index.html">
+<meta property="og:site_name" content="Walson的自留地">
+<meta property="og:description" content="计算步骤数据导入 将数据集导入，并将数据集的特性和价格分离成两个数据集1234567891011121314# 载入此项目所需要的库import numpy as npimport pandas as pdimport visuals as vs # Supplementary code# 载入波士顿房屋的数据集data = pd.read_csv(&amp;apos;housing.csv&amp;apos;)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-30T08:43:18.078Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="P1项目总结">
+<meta name="twitter:description" content="计算步骤数据导入 将数据集导入，并将数据集的特性和价格分离成两个数据集1234567891011121314# 载入此项目所需要的库import numpy as npimport pandas as pdimport visuals as vs # Supplementary code# 载入波士顿房屋的数据集data = pd.read_csv(&amp;apos;housing.csv&amp;apos;)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/03/P1项目总结/"/>
+
+
+
+
+
+  <title>P1项目总结 | Walson的自留地</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Walson的自留地</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/P1项目总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Walson">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Walson的自留地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">P1项目总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T21:15:58+08:00">
+                2017-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="计算步骤"><a href="#计算步骤" class="headerlink" title="计算步骤"></a>计算步骤</h2><h4 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h4><ul>
+<li>将数据集导入，并将数据集的特性和价格分离成两个数据集<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 载入此项目所需要的库</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">import visuals as vs # Supplementary code</span><br><span class="line"></span><br><span class="line"># 载入波士顿房屋的数据集</span><br><span class="line">data = pd.read_csv(&apos;housing.csv&apos;)</span><br><span class="line"># 分离价格</span><br><span class="line">prices = data[&apos;MEDV&apos;]</span><br><span class="line"># 分离出特性值</span><br><span class="line">features = data.drop(&apos;MEDV&apos;, axis = 1)</span><br><span class="line">    </span><br><span class="line"># 完成</span><br><span class="line">print &quot;Boston housing dataset has &#123;&#125; data points with &#123;&#125; variables each.&quot;.format(*data.shape)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="数据分割"><a href="#数据分割" class="headerlink" title="数据分割"></a>数据分割</h4><ul>
+<li>将特征和价格的数据集分割为训练集和测试集，用以评估学习效果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line"></span><br><span class="line">def generate_train_and_test(X, y):</span><br><span class="line">    &quot;&quot;&quot;打乱并分割数据为训练集和测试集&quot;&quot;&quot;</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">    X, y, test_size=0.2, random_state=0)</span><br><span class="line">    return (X_train, X_test, y_train, y_test)</span><br><span class="line">    </span><br><span class="line">X_train, X_test, y_train, y_test = generate_train_and_test(features, prices)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="训练和测试"><a href="#训练和测试" class="headerlink" title="训练和测试"></a>训练和测试</h4><ul>
+<li>预设训练效果的评估函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.metrics import r2_score</span><br><span class="line"></span><br><span class="line">def performance_metric(y_true, y_predict):</span><br><span class="line">    &quot;&quot;&quot;计算并返回预测值相比于预测值的分数&quot;&quot;&quot;</span><br><span class="line">    score = r2_score(y_true,y_predict)</span><br><span class="line">    return score</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="网格搜索和交叉验证"><a href="#网格搜索和交叉验证" class="headerlink" title="网格搜索和交叉验证"></a>网格搜索和交叉验证</h4><ul>
+<li>使用网格搜索和交叉验证计算最佳模型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#提示: 导入 &apos;KFold&apos; &apos;DecisionTreeRegressor&apos; &apos;make_scorer&apos; &apos;GridSearchCV&apos; </span><br><span class="line">from sklearn.model_selection import KFold</span><br><span class="line">from sklearn.tree import DecisionTreeRegressor</span><br><span class="line">from sklearn.metrics import make_scorer</span><br><span class="line">from sklearn.model_selection import GridSearchCV</span><br><span class="line"></span><br><span class="line">def fit_model(X, y):</span><br><span class="line">    &quot;&quot;&quot; 基于输入数据 [X,y]，利于网格搜索找到最优的决策树模型&quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    cross_validator = KFold(n_splits=10)</span><br><span class="line">    </span><br><span class="line">    regressor = DecisionTreeRegressor(random_state=0)</span><br><span class="line"></span><br><span class="line">    params = &#123;&apos;max_depth&apos;:[1,2,3,4,5,6,7,8,9,10]&#125;</span><br><span class="line"></span><br><span class="line">    scoring_fnc = make_scorer(performance_metric)</span><br><span class="line"></span><br><span class="line">    grid = GridSearchCV(scoring=scoring_fnc,cv=cross_validator,param_grid=params,estimator=regressor)</span><br><span class="line"></span><br><span class="line">    # 基于输入数据 [X,y]，进行网格搜索</span><br><span class="line">    grid = grid.fit(X, y)</span><br><span class="line"></span><br><span class="line">    # 返回网格搜索后的最优模型</span><br><span class="line">    return grid.best_estimator_</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="获得最佳模型"><a href="#获得最佳模型" class="headerlink" title="获得最佳模型"></a>获得最佳模型</h4><ul>
+<li>调用函数，加入数据集获得最佳模型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 基于熟练数据，获得最优模型</span><br><span class="line">optimal_reg = fit_model(X_train, y_train)</span><br><span class="line"></span><br><span class="line"># 输出最优模型的 &apos;max_depth&apos; 参数</span><br><span class="line">print &quot;Parameter &apos;max_depth&apos; is &#123;&#125; for the optimal model.&quot;.format(optimal_reg.get_params()[&apos;max_depth&apos;])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="预测和预测评估"><a href="#预测和预测评估" class="headerlink" title="预测和预测评估"></a>预测和预测评估</h4><ul>
+<li>放入测试集数据进行预测，并评估预测结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 进行预测</span><br><span class="line">predicted_price = optimal_reg.predict(X_test)</span><br><span class="line">for i, price in enumerate(predicted_price):</span><br><span class="line">    print &quot;Predicted selling price for Client &#123;&#125;&apos;s home: $&#123;:,.2f&#125;&quot;.format(i+1, price)</span><br><span class="line"></span><br><span class="line">r2 = performance_metric(predicted_price,y_test)</span><br><span class="line"></span><br><span class="line">print &quot;Optimal model has R^2 score &#123;:,.2f&#125; on test data&quot;.format(r2)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="问题回顾"><a href="#问题回顾" class="headerlink" title="问题回顾"></a>问题回顾</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/07/数据基础/" rel="next" title="数据基础">
+                <i class="fa fa-chevron-left"></i> 数据基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/20/机器学习-一/" rel="prev" title="机器学习(一)">
+                机器学习(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Walson" />
+          <p class="site-author-name" itemprop="name">Walson</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算步骤"><span class="nav-number">1.</span> <span class="nav-text">计算步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据导入"><span class="nav-number">1.0.1.</span> <span class="nav-text">数据导入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据分割"><span class="nav-number">1.0.2.</span> <span class="nav-text">数据分割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#训练和测试"><span class="nav-number">1.0.3.</span> <span class="nav-text">训练和测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网格搜索和交叉验证"><span class="nav-number">1.0.4.</span> <span class="nav-text">网格搜索和交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获得最佳模型"><span class="nav-number">1.0.5.</span> <span class="nav-text">获得最佳模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预测和预测评估"><span class="nav-number">1.0.6.</span> <span class="nav-text">预测和预测评估</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题回顾"><span class="nav-number">2.</span> <span class="nav-text">问题回顾</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Walson</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
