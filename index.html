@@ -260,6 +260,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/工作日志/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Walson">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Walson的自留地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/29/工作日志/" itemprop="url">工作日志</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T19:05:04+08:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/PMP学习计划/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1428,149 +1547,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/P1项目总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Walson">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Walson的自留地">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/03/P1项目总结/" itemprop="url">P1项目总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T21:15:58+08:00">
-                2017-09-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="计算步骤"><a href="#计算步骤" class="headerlink" title="计算步骤"></a>计算步骤</h2><h4 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h4><ul>
-<li>将数据集导入，并将数据集的特性和价格分离成两个数据集<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 载入此项目所需要的库</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">import visuals as vs # Supplementary code</span><br><span class="line"></span><br><span class="line"># 载入波士顿房屋的数据集</span><br><span class="line">data = pd.read_csv(&apos;housing.csv&apos;)</span><br><span class="line"># 分离价格</span><br><span class="line">prices = data[&apos;MEDV&apos;]</span><br><span class="line"># 分离出特性值</span><br><span class="line">features = data.drop(&apos;MEDV&apos;, axis = 1)</span><br><span class="line">    </span><br><span class="line"># 完成</span><br><span class="line">print &quot;Boston housing dataset has &#123;&#125; data points with &#123;&#125; variables each.&quot;.format(*data.shape)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="数据分割"><a href="#数据分割" class="headerlink" title="数据分割"></a>数据分割</h4><ul>
-<li>将特征和价格的数据集分割为训练集和测试集，用以评估学习效果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line"></span><br><span class="line">def generate_train_and_test(X, y):</span><br><span class="line">    &quot;&quot;&quot;打乱并分割数据为训练集和测试集&quot;&quot;&quot;</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">    X, y, test_size=0.2, random_state=0)</span><br><span class="line">    return (X_train, X_test, y_train, y_test)</span><br><span class="line">    </span><br><span class="line">X_train, X_test, y_train, y_test = generate_train_and_test(features, prices)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="训练和测试"><a href="#训练和测试" class="headerlink" title="训练和测试"></a>训练和测试</h4><ul>
-<li>预设训练效果的评估函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.metrics import r2_score</span><br><span class="line"></span><br><span class="line">def performance_metric(y_true, y_predict):</span><br><span class="line">    &quot;&quot;&quot;计算并返回预测值相比于预测值的分数&quot;&quot;&quot;</span><br><span class="line">    score = r2_score(y_true,y_predict)</span><br><span class="line">    return score</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="网格搜索和交叉验证"><a href="#网格搜索和交叉验证" class="headerlink" title="网格搜索和交叉验证"></a>网格搜索和交叉验证</h4><ul>
-<li>使用网格搜索和交叉验证计算最佳模型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#提示: 导入 &apos;KFold&apos; &apos;DecisionTreeRegressor&apos; &apos;make_scorer&apos; &apos;GridSearchCV&apos; </span><br><span class="line">from sklearn.model_selection import KFold</span><br><span class="line">from sklearn.tree import DecisionTreeRegressor</span><br><span class="line">from sklearn.metrics import make_scorer</span><br><span class="line">from sklearn.model_selection import GridSearchCV</span><br><span class="line"></span><br><span class="line">def fit_model(X, y):</span><br><span class="line">    &quot;&quot;&quot; 基于输入数据 [X,y]，利于网格搜索找到最优的决策树模型&quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    cross_validator = KFold(n_splits=10)</span><br><span class="line">    </span><br><span class="line">    regressor = DecisionTreeRegressor(random_state=0)</span><br><span class="line"></span><br><span class="line">    params = &#123;&apos;max_depth&apos;:[1,2,3,4,5,6,7,8,9,10]&#125;</span><br><span class="line"></span><br><span class="line">    scoring_fnc = make_scorer(performance_metric)</span><br><span class="line"></span><br><span class="line">    grid = GridSearchCV(scoring=scoring_fnc,cv=cross_validator,param_grid=params,estimator=regressor)</span><br><span class="line"></span><br><span class="line">    # 基于输入数据 [X,y]，进行网格搜索</span><br><span class="line">    grid = grid.fit(X, y)</span><br><span class="line"></span><br><span class="line">    # 返回网格搜索后的最优模型</span><br><span class="line">    return grid.best_estimator_</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="获得最佳模型"><a href="#获得最佳模型" class="headerlink" title="获得最佳模型"></a>获得最佳模型</h4><ul>
-<li>调用函数，加入数据集获得最佳模型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 基于熟练数据，获得最优模型</span><br><span class="line">optimal_reg = fit_model(X_train, y_train)</span><br><span class="line"></span><br><span class="line"># 输出最优模型的 &apos;max_depth&apos; 参数</span><br><span class="line">print &quot;Parameter &apos;max_depth&apos; is &#123;&#125; for the optimal model.&quot;.format(optimal_reg.get_params()[&apos;max_depth&apos;])</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="预测和预测评估"><a href="#预测和预测评估" class="headerlink" title="预测和预测评估"></a>预测和预测评估</h4><ul>
-<li>放入测试集数据进行预测，并评估预测结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 进行预测</span><br><span class="line">predicted_price = optimal_reg.predict(X_test)</span><br><span class="line">for i, price in enumerate(predicted_price):</span><br><span class="line">    print &quot;Predicted selling price for Client &#123;&#125;&apos;s home: $&#123;:,.2f&#125;&quot;.format(i+1, price)</span><br><span class="line"></span><br><span class="line">r2 = performance_metric(predicted_price,y_test)</span><br><span class="line"></span><br><span class="line">print &quot;Optimal model has R^2 score &#123;:,.2f&#125; on test data&quot;.format(r2)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="问题回顾"><a href="#问题回顾" class="headerlink" title="问题回顾"></a>问题回顾</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1621,7 +1597,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
